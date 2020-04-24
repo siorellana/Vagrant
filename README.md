@@ -6,7 +6,7 @@ En este repositorio encontrarán algunas definiciones de Vagrantfiles para disti
 
 * BOX: Un ambiente preempaquetado de Vagrant que es el mismo en cualquier computador que es desplegado.
 
-* PROVIDER: El sistema que administra la máquina virtual, como ViatualBox, VMWare, etc...
+* PROVIDER: El sistema que administra la máquina virtual, como ViatualBox, VMWare, Hyper-V etc...
 
 * PROVISIONER: Sistema que permite instalar software o configuraciones como CHEF o PUPPET.
 
