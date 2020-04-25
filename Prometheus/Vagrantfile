@@ -1,9 +1,26 @@
+$samplescript = <<SCRIPT
+echo "Instalando Docker"
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt-get -y install docker-ce
+sudo usermod -aG docker vagrant
+echo "Instalando NPM y Node.js"
+curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+sudo chmod +x nodesource_setup.sh
+sudo ./nodesource_setup.sh
+sudo apt-get -y install nodejs
+sudo apt-get -y install build-essential
+SCRIPT
 Vagrant.configure(2) do |config|
- config.vm.box = "bento/ubuntu-18.04"
- config.vm.hostname = "monitoring"
-# config.vm.synced_folder "src/", "/var/www/html"
- config.vm.provider "virtualbox" do |vb|
- vb.memory = "1024"
- vb.cpus = "1"
- end
+  config.vm.box = "bento/ubuntu-18.04"
+  config.vm.hostname = "monitoring"
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.provision "shell", inline: $samplescript
+  # config.vm.synced_folder "src/", "/var/www/html"
+  config.vm.provider "virtualbox" do |vb|
+  vb.memory = "1024"
+  vb.cpus = "1"
+  end
 end

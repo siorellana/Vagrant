@@ -15,7 +15,7 @@ En este repositorio encontrarán algunas definiciones de Vagrantfiles para disti
 ## Comandos
 
 `vagrant init`
->> Initialize the directory as a Vagrant environment; creates Vagrantfile.
+>> Inicializa el ambiente y crea un Vagranfile
 
 `vagrant box add <boxname>`
 >> Add a Vagrant box to to environment.
@@ -43,6 +43,9 @@ En este repositorio encontrarán algunas definiciones de Vagrantfiles para disti
 
 `vagrant destroy`
 >> Remove guest machine(s).
+
+`vagrant ssh`
+>> Se accede a la VM a través de SSH.
 
 ## Ejemplos
 
